@@ -16,8 +16,8 @@ public class Program {
 		System.out.println("Enter account data");
 		System.out.print("Number: ");
 		int number = sc.nextInt();
-		sc.nextLine();
 		System.out.print("Holder: ");
+		sc.nextLine();
 		String holder = sc.nextLine();
 		System.out.print("Initial balance: ");
 		double balance = sc.nextDouble();
@@ -28,18 +28,21 @@ public class Program {
 
 		System.out.println(" ");
 		System.out.print("Enter amount for withdraw: ");
-		double withdraw = sc.nextDouble();
+		double amount = sc.nextDouble();
 
 		try {
 			
-			acc.withdraw(withdraw);
-			System.out.print("New Balance: " + acc.getBalance());
+			acc.withdraw(amount);
+			System.out.printf("New Balance: %.2f%n " , acc.getBalance());
+
+		} 
+		catch (WithdrawException e) {
 			
-		} catch (WithdrawException e) {
+			System.out.println("Error: " + e.getMessage());
+			
+		}
 
-			System.out.println("Withdraw error: " + e.getMessage());
-
-		} catch (RuntimeException e) {
+		catch (RuntimeException e) {
 			
 			System.out.println("Unexpected error");
 

@@ -10,11 +10,9 @@ public class Account {
 	private Double withdrawLimit;
 	
 	public Account() {
-		
 	}
 
 	public Account(Integer number, String holder, Double balance, Double withdrawLimit) {
-		super();
 		this.number = number;
 		this.holder = holder;
 		this.balance = balance;
@@ -43,7 +41,6 @@ public class Account {
 
 	public void deposit(double amount) {
 		balance += amount;
-		
 	}
 	
 	public void withdraw(double amount) {
@@ -53,7 +50,7 @@ public class Account {
 		balance -= amount;
 	}
 	
-	public void validateWithdraw(double amount) {
+	private void validateWithdraw(double amount) {
 	
 		if (amount > getWithdrawLimit()){
 			
